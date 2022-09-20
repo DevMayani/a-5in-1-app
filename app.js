@@ -111,7 +111,7 @@ function showRiddle() {
   const newRiddleAnswer = document.createElement('p');
 
   newRiddleText.textContent = randomRiddle.question;
-  newRiddleAnswer.textContent = '- Correct Answer is : ' + randomRiddle.answer;
+  newRiddleAnswer.textContent = 'Correct Answer is : ' + randomRiddle.answer;
   newRiddleAnswer.setAttribute('id', 'riddle-answer');
   
   clearAll();
