@@ -47,7 +47,7 @@ const data = {
     memes,
     jokes,
     quotes,
-    riddles
+    riddles,
   };
 function rn(len) {
   return Math.floor(Math.random() * len);
@@ -100,4 +100,39 @@ function showQuote() {
 
   quoteContainer.appendChild(newQuoteText);
   quoteContainer.appendChild(newQuoteAuthor);
+}
+
+function showRiddle() {
+  const randomRiddle = getRandomData('riddles');
+  
+  const riddleContainer = document.querySelector('.riddle-content');
+  
+  const newRiddleText = document.createElement('p');
+  const newRiddleAnswer = document.createElement('p');
+
+  newRiddleText.textContent = randomRiddle.question;
+  newRiddleAnswer.textContent = '- Correct Answer is : ' + randomRiddle.answer;
+  newRiddleAnswer.setAttribute('id', 'riddle-answer');
+  
+  clearAll();
+  
+  newRiddleAnswer.hidden = true;
+  
+  riddleContainer.appendChild(newRiddleText);
+  riddleContainer.appendChild(newRiddleAnswer);
+}
+
+function revealAnswer() {
+  const riddleContent = document.querySelector('.riddle-content');
+  const riddle = riddleContent.querySelector('p');
+  const riddleAnswer = document.querySelector('#riddle-answer');
+
+  
+  if (riddle && riddleAnswer.hidden) {
+    riddleAnswer.hidden = false;
+  } else if (riddle && riddleAnswer) {
+    alert('The riddle answer is already exposed!')
+  } else {
+    alert('There is no riddle to show the answer for!')
+  }
 }
